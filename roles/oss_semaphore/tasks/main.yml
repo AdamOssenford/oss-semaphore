@@ -1,0 +1,32 @@
+---
+# tasks file for oss-semaphore
+- name: launch redis container
+  docker: 
+    name: redisio
+    image: redis
+    pull: always
+    state: started
+
+- name: launch mongodb container
+  docker: 
+    name: mongodb
+    image: mongo
+    pull: always
+    state: started
+    ports:
+    - "127.0.0.1:27017:27017"
+
+- name: launch semaphore container
+  docker:
+    name: semaphore
+    image: castawaylabs/semaphore
+    pull: always
+    state: started
+    ports:
+    - "80:80"
+    links:
+    - redisio:redis
+    - mongodb:mongo
+    env:
+      MONGODB_URL: mongodb://mongo/semaphore
+      REDIS_HOST: redis

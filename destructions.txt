@@ -1,0 +1,21 @@
+#https://github.com/ansible-semaphore/semaphore
+
+# this was performed on ubuntu
+sudo apt-get install software-properties-common -y
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update 
+sudo apt-get install ansible -y
+sudo apt-get install pip -y
+
+# docker-py is probably broke.  fix it like this
+sudo pip uninstall docker-py
+sudo pip install six==1.4
+sudo pip install docker-py==1.1.0
+
+# run ansible-playbook site.yml on the local machine or change your target host
+
+# browse to your ip http://
+
+# login with default credentials
+# user: admin@semaphore.local
+# password: CastawayLabs

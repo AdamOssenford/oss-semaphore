@@ -1,0 +1,1 @@
+ansible localhost -m docker -a "name=redisio pull=always detach=true state=started image=redis" 

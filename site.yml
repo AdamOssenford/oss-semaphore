@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: false
+  user: root
+  vars:
+    ansible_path: "{{ lookup('env','ANSIBLE_WORK_DIR') }}"
+  roles:
+  - oss_semaphore
