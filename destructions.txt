@@ -1,5 +1,12 @@
 #https://github.com/ansible-semaphore/semaphore
 
+# - name: Docker-PY
+#    pip:
+#      name: "{{ item }}"
+#    with_items:
+#    - six==1.4
+#    - docker-py==1.1.0
+
 # this was performed on ubuntu
 sudo apt-get install software-properties-common -y
 sudo apt-add-repository ppa:ansible/ansible
